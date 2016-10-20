@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>BLE</title>
+		<script type="text/javascript">
+            let filters = [];
+            filters.push( { name: "iPhone-Lauri" } );
+            console.log('Requesting Bluetooth Device...');
+            navigator.bluetooth.requestDevice({filters: filters})
+            .then(device => {
+                console.log('> Name:             ' + device.name);
+                console.log('> Id:               ' + device.id);
+                console.log('> Connected:        ' + device.gatt.connected);
+            })
+            .catch(error => {
+                console.log('Argh! ' + error);
+            });
+		</script>
+	</head>
+	<body>
+		<div id="log"></div>
+	</body>
+</html>
